@@ -32,18 +32,26 @@
 
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
+		<button class="outline">click me</button>
 
-		{#if pets && pets.length}
-		<ul>
-		  {#each pets as pet}
-			<li>{pet.name}</li>
-			<img src={_urlFor(pet.image).width(200).url()} alt="{pet.name} image." />
 
-		  {/each}
-		</ul>
-		{:else}
-			<p>No pets found.</p>
-		{/if}
+		<details open>
+		  <summary>Pets</summary>
+		  {#if pets && pets.length}
+		  <ul>
+			{#each pets as pet}
+
+			  <li>{pet.name}</li>
+			  <img src={_urlFor(pet.image).width(200).url()} alt="{pet.name} image." />
+
+			{/each}
+		  </ul>
+		  {:else}
+			  <p>No pets found.</p>
+		  {/if}
+		</details>
+
+
 
 		{#if pets && pets.length}
 		<pre>
